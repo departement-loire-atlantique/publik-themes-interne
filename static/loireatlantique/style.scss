@@ -3,6 +3,18 @@
 $primary-color: #aec900;
 $font-size: 14px !default;
 $link-color: #000000;
+$button-color: white;
+$button-background: $primary-color;
 
-@import '../../publik-base-theme/static/includes
-
+@import '../../publik-base-theme/static/includes/_utils.scss';
+@import '../../publik-base-theme/static/includes/general';
+@import '../../publik-base-theme/static/includes/title';
+@import '../../publik-base-theme/static/includes/layout';
+@import '../../publik-base-theme/static/includes/nav';
+@import '../../publik-base-theme/static/includes/cells';
+@import '../../publik-base-theme/static/includes/user-info';
+@import '../../publik-base-theme/static/includes/jqueryui';
+@import '../../publik-base-theme/static/includes/wcs';
+@import '../../publik-base-theme/static/includes/forms';
+@import '../../publik-base-theme/static/includes/misc';
+@import '../../publik-base-theme/static/includes/grid';

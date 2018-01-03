@@ -5,8 +5,11 @@ prefix = /usr
 
 all: icons css
 
+data_uris:
+	cd publik-base-theme && python make_data_uris.py static/includes/
+
 css: export LC_ALL=C.UTF-8
-css:
+css: data_uris
 	cd static/loireatlantique/ && sass style.scss:style.css
 	rm -rf static/*/.sass-cache/
 
