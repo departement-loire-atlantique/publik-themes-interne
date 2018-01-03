@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load i18n static %}
+<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %} {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{site_base}}" />
+    <title>{% firstof global_title "Compte Citoyen" %} {% block title %}{% endblock %}</title>
+    
+    {% if favicon %}
+    <link rel="shortcut icon" href="{{site_base}}{% static "" %}{{favicon}}" />
+    {% endif %}
+    {% if theme_color %}
+    <meta name="theme-color" content="{{theme_color}}">
+    <meta name="msapplication-navbutton-color" content="{{theme_color}}">
+    {% endif %}
+    {% block extra_top_head %}
+    {% endblock %}
+    {{ media }}
+    {% if css_variant %}
+      <link rel="stylesheet" type="text/css" href="{{site_base}}{% static "" %}{{css_variant}}/style.css?{{statics_hash}}">
+    {% else %}
+      <link rel="stylesheet" type="text/css" href="{{site_base}}{% static "style.css" %}?{{statics_hash}}">
+    {% endif %}
+    {% block extra_css %}
+    {% endblock %}
+    {% block extra_scripts %}
+    {% endblock %}
+  </head>
+  <body {% block bodyargs %}class="{% block bodyclasses %}{% endblock %}" {% block bodyattrs %}{% endblock %}{% endblock %}>
+   <div id="nav-skip">
+    <div>
+     <a href="#main-content">Aller au contenu</a>
+     <a href="#nav">Aller au menu</a>
+    </div>
+   </div>
+
+   <div id="page" {% block page-args %}{% endblock %}>
+    <header>
+    <div id="header-wrapper" >
+    <div id="header">
+     {% block header-top %}{% endblock %}
+     <div id="top">
+       {% block header-title %}
+       <h1 id="logo"><a accesskey="1" href="{{ logo_link_url|default:'/' }}">{{ site_title }}</a></h1>
+       {% endblock %}
+        <div id="toplinks">
+          {% block user-info %}
+          {% if user.is_authenticated %}
+          <span class="logged-in">
+            <span class="connected-user">{{user.first_name}} {{user.last_name}}</span>
+            <a class="logout" href="{% url 'auth_logout' %}">D&eacute;connexion</a>
+          </span>
+          {% endif %}
+          {% endblock %}
+        </div> <!-- toplinks -->
+     </div>
+     {% block header-bottom %}{% endblock %}
+    </div> <!-- header -->
+    </div> <!-- header-wrapper -->
+    </header>
+
+{% block nav %}
+<nav>
+<div id="nav-wrapper" >
+<div id="nav" class="togglable">
+  <button id="nav-button" class="togglable" aria-label="Menu">
+    <span class="sr-only">Ouvrir le menu</span>
+    <span class="icon-bar icon-bar-1"></span>
+    <span class="icon-bar icon-bar-2"></span>
+    <span class="icon-bar icon-bar-3"></span>
+  </button>
+{% block menu %}
+  <ul>
+    <li class="link-accueil"><a href="{{combo_url}}">Accueil</a></li>
+    <li class="link-demarches"><a href="{{wcs_url}}/login">Démarches</a></li>
+    <li class="link-profil"><a href="{{authentic_url}}/accounts/">Profil</a></li>
+    <li class="link-aide"><a href="{{help_url}}">Aide</a></li>
+  </ul>
+{% endblock %}
+</div> <!-- nav -->
+</div> <!-- nav-wrapper -->
+</nav>
+{% endblock %}
+
+  {% block before-main-content %}
+  {% endblock %}
+
+  <div id="main-content-wrapper">
+    <div id="main-content">
+
+{% block messages %}
+{% if messages %}
+  <div id="messages" class="messages-login">
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+{% endblock %}
+
+    <div id="content" class="large">
+            {% block content %}
+            {% endblock %}
+    </div> <!-- #content -->
+
+    <br class="clear"/>
+
+    </div> <!-- #main-content -->
+    </div> <!-- #main-content-wrapper -->
+
+   <footer>
+    {% block footer-top %}{% endblock %}
+    <div id="footer-wrapper">
+    <div id="footer">
+      {% block footer %}
+      <p id="legal">Copyright © 2005-2016 Entr'ouvert</p>
+      {% endblock %}
+    </div>
+    </div>
+    {% block footer-bottom %}{% endblock %}
+   </footer>
+   </div> <!-- #page -->
+   {% if environment_label %}<span id="environment-label">{{ environment_label }}</span>{% endif %}
+   <a style="display: none" href="#" accesskey="t">Retour en haut de page</a>
+   {% if cnil_compliant_visits_tracking_js %}
+     <script type="text/javascript">
+     {{ cnil_compliant_visits_tracking_js|safe }}
+     </script>
+   {% elif visits_tracking_js %}
+     <script type="text/javascript" src="{{ site_base }}{% static 'js/cookie_usage_consent.js' %}?{{statics_hash}}"></script>
+     <script type="text/javascript">
+       if (has_consent()) {
+        {{ visits_tracking_js|safe }}
+       }
+     </script>
+   {% endif %}
+  </body>
+</html>
