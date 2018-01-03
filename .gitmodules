@@ -1,0 +1,4 @@
+[submodule "publik-base-theme"]
+	path = publik-base-theme
+	url = http://git.entrouvert.org/publik-base-theme.git
+
