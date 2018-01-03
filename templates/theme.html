@@ -1,16 +1,76 @@
 <!DOCTYPE html>
 {% load i18n static %}
 <html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %} {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
-  <head>
+  <head prefix="og: http://ogp.me/ns#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="{{site_base}}" />
-    <title>{% firstof global_title "Compte Citoyen" %} {% block title %}{% endblock %}</title>
+    <title>{% firstof global_title "Compte Citoyen" %} {% block title %}{% endblock %}</title>    
+    <meta name="description" content="Département de loire atlantique - Vos démarches en ligne">
+    <meta name="keywords" content="services, contacts, aides, informations pratiques ciblés pour l'enfance, la famille, la jeunesse, les personnes âgées, les personnes en situation de handicap, l'éducation, le RSA, insertion, l'emploi, l'économie, l'environnement, la culture, le sport, le logement, le tourisme, les aides aux territoires, les subventions départementales, quotidien, infotrafic, horaires des transports LILA , agenda des loisirs, événements incontournables Loire-Atlantique.">
     
-    {% if favicon %}
-    <link rel="shortcut icon" href="{{site_base}}{% static "" %}{{favicon}}" />
-    {% endif %}
+
+    <link rel="shortcut icon" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/favicon.ico">
+    <link rel="shortcut icon" sizes="196x196" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_196x196.png">
+    <link rel="apple-touch-icon" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_152x152.png">
+
+    <!-- Base CSS files -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/css/jalios/core/core.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/css/jalios/core/responsive.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/ToolsPlugin/css/common.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/common.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/sprite.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/ToolsPlugin/css/sprite.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/winterthurcondensed/stylesheet.css" type="text/css" media="all">
+    
+    <!-- Base JS files -->
+    <script type="text/javascript" src="https://www.loire-atlantique.fr/js/lib/jquery/jquery-1.8.2.js"></script>
+
+    <!-- Header -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/commonPortalStructureHeader.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateMenuBar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateMenuSlideBar.css" type="text/css" media="all">
+
+    <!-- Breadcrumb -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateBreadCrumb.css" type="text/css" media="all">
+
+    <!-- Headstall -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/AbstractPortletSkinable/slideBarSkinableServiceSummary.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/headstall/model1.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/headstall/model3.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletQueryForeach/pqfNavigationWelcomingSection.css" type="text/css" media="all">
+    <!-- TODO : buggé script type="text/javascript" src="https://www.loire-atlantique.fr/plugins/ToolsPlugin/js/shareSocialNetwork.js"></script-->
+    
+    <!-- Footer -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/commonPortalStructureFooter.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/socialNetworksFooter.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateMenuSep.css" type="text/css" media="all">
+    <style type="text/css">
+    <!-- 
+      .menuColumns li {display: table}
+      .menuColumns div, .menuColumns p {display: table-cell}
+    -->
+    </style>
+    
+    <!-- Tout savoir sur le département -->
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateMenu3Columns.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/PortletNavigate/portletNavigateMenuSlideBar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/css/types/AbstractPortletSkinable/slideBarSkinableNavigation.css" type="text/css" media="all">
+    <script type="text/javascript" src="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/js/types/AbstractPortletSkinable/slideBarSkinable.js"></script>
+   
+    <!-- Partage -->
+    <meta property="og:site_name" content="Vos démarches en Loire-atlantique.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% firstof global_title "Compte Citoyen" %} {% block title %}{% endblock %}" >
+    <meta property="og:description" content="Vos démarches en Loire-atlantique.fr">
+    <meta property="og:image" content="https://www.loire-atlantique.fr/upload/docs/image/png/2015-04/depla_site_favicon_196x196.png">
+    <meta name="twitter:card" content="summary"><meta name="twitter:site" content="loireatlantique">
+    
     {% if theme_color %}
     <meta name="theme-color" content="{{theme_color}}">
     <meta name="msapplication-navbutton-color" content="{{theme_color}}">
@@ -29,13 +89,167 @@
     {% endblock %}
   </head>
   <body {% block bodyargs %}class="{% block bodyclasses %}{% endblock %}" {% block bodyattrs %}{% endblock %}{% endblock %}>
+   <a id="top" style="display:block;"></a>
+
    <div id="nav-skip">
     <div>
      <a href="#main-content">Aller au contenu</a>
      <a href="#nav">Aller au menu</a>
+     <li><a href="#footer">Aller au pied de la page</a></li>
     </div>
    </div>
 
+   <header>
+      <div class="header-container">
+        <div class="container-fluid">
+          <div class="row-fluid">
+              <div class="span3 logo">
+                <a href="http://www.loire-atlantique.fr"><img src="http://www.loire-atlantique.fr/upload/docs/image/png/2013-11/entete-logo2.png" alt="loire-atlantique.fr" title="loire-atlantique.fr" style="border:0; text-align:center; vertical-align: middle; "></a>
+          </div>
+              <div class="span9 hidden-phone navigation printHide">
+                <ul class="menuBar">
+                  <li class="selected">
+                    <a href="https://www.loire-atlantique.fr/jcms/services-fr-c_5026" title="Services">Services</a>
+                    <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-menu-princ-actif" />
+                  </li>
+                <li><a href="https://www.loire-atlantique.fr/jcms/notre-actualite-fr-c_5060" title="Notre actualité">Notre actualité</a></li>
+                <li><a href="https://www.loire-atlantique.fr/jcms/sorties-loisirs-fr-c_5063" title="Sorties loisirs">Sorties loisirs</a></li>
+                <li><a href="https://www.loire-atlantique.fr/jcms/contacts-fr-c_5062" title="Contacts">Contacts</a></li>
+            </ul>
+          </div>
+          <!-- TODO a repositionner plus haut -->
+          <div class="span9 visible-phone navigation printHide">
+            <div class="menuMobile">
+                  <div class="row-fluid menuMobileIcons">
+                  <div class="menuSlideBar span6">
+                    <a href="#" class="menu" title="Ouvrir le menu de navigation">
+                        <img src="https://www.loire-atlantique.fr/s.gif" class="icon-off spr-mob-menu-off" alt="Ouvrir le menu de navigation">
+                        <img src="https://www.loire-atlantique.fr/s.gif" class="icon-hover spr-mob-menu-on hide" alt="Ouvrir le menu de navigation">
+                        <img src="https://www.loire-atlantique.fr/s.gif" class="icon-on spr-mob-menu-on hide" alt="Fermer le menu de navigation">
+                          <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-menu-princ-actif">
+                    </a>
+                    </div>
+                    <div class="menuSlideBar span6">
+                      <a href="#" class="share" title="Ouvrir le menu de partage">
+                      <img src="https://www.loire-atlantique.fr/s.gif" class="icon-off spr-mob-partage-off" alt="Ouvrir le menu de partage">
+                        <img src="https://www.loire-atlantique.fr/s.gif" class="icon-hover spr-mob-partage-on hide" alt="Ouvrir le menu de partage">
+                        <img src="https://www.loire-atlantique.fr/s.gif" class="icon-on spr-mob-partage-on hide" alt="Fermer le menu de partage">
+                      <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-menu-princ-actif">
+                      </a>
+                  </div>
+                </div>
+                <div id="mainMenuLinks" class="close-toggle" style="display: none;">
+                    <ul>
+                        <li class="selected">
+                          <a href="https://www.loire-atlantique.fr/jcms/services-fr-c_5026" title="Services">Services</a>
+                        </li>
+                        <li>
+                          <a href="https://www.loire-atlantique.fr/jcms/notre-actualite-fr-c_5060" title="Notre actualité">Notre actualité</a>
+                        </li>
+                        <li>
+                          <a href="https://www.loire-atlantique.fr/jcms/sorties-loisirs-fr-c_5063" title="Sorties loisirs">Sorties loisirs</a>
+                        </li>
+                        <li>
+                          <a href="https://www.loire-atlantique.fr/jcms/contacts-fr-c_5062" title="Contacts">Contacts</a>
+                        </li>
+                    </ul>
+                  </div>
+                  <!-- TODO KO -->
+                  <div id="shareLinks" class="close-toggle" style="display: none;">
+                    <script src="https://apis.google.com/js/client.js" gapi_processed="true"></script>
+                  <ul class="no-background-color social-network"><li><a title="Partager sur Facebook - Nouvelle fenêtre" rel="nofollow" class="share-link facebook" href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fservices-fr-c_5026" data-url="https://www.loire-atlantique.fr/jcms/services-fr-c_5026"><span class="social-icon spr-picto-facebook"></span><span>Facebook</span></a></li><li><a title="Partager sur Twitter - Nouvelle fenêtre" rel="nofollow" class="share-link twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fservices-fr-c_5026&amp;tw_p=tweetbutton&amp;via=loireatlantique" data-url="https://www.loire-atlantique.fr/jcms/services-fr-c_5026" data-site="loireatlantique"><span class="social-icon spr-picto-twitter"></span><span>Twitter</span></a></li><li><a title="Partager sur Google+ - Nouvelle fenêtre" rel="nofollow" class="share-link google-plus" href="https://plus.google.com/share?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fservices-fr-c_5026"><span class="social-icon spr-picto-googleplus"></span><span>Google +</span></a></li><li class="hide show-js-inline"><a title="Partager sur Pinterest - Nouvelle fenêtre" rel="nofollow" class="share-link pinterest" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fservices-fr-c_5026"><span class="social-icon spr-picto-pinterest"></span><span>Pinterest</span></a></li></ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>   
+  </header>
+
+  <div class="headstall container-fluid">
+      <div class="row-fluid">
+        <div class="span12 navigate">
+        <ul class="breadCrumb" style="background-color: #fff;">
+          <li itemprop="title"><a itemprop="url" href="index.jsp" title="Retour à l'accueil du site loire-atlantique.fr"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-home" alt="Retour à l'accueil du site loire-atlantique.fr"></a></li><li itemprop="title"><a itemprop="url" href="https://www.loire-atlantique.fr/jcms/services-fr-c_5026">Services</a></li><li itemprop="title"><a itemprop="url" href="https://www.loire-atlantique.fr/jcms/services/jeunesse-fr-c_5028">Jeunesse</a></li><li itemprop="title"><a itemprop="url" href="https://www.loire-atlantique.fr/jcms/services/jeunesse/les-deplacements-fr-t1_12447">Les déplacements</a></li><li itemprop="title"><a itemprop="url" href="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?portal=aca_6941&amp;category=t1_12458">L'aide au permis de conduire</a></li><li itemprop="title"><a itemprop="url" class="selected" href="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?portal=aca_6941&amp;category=t1_12458" title="L'aide au permis de conduire pour les jeunes">L'aide au permis de conduire pour les jeunes</a></li>
+        </ul>
+      </div>
+    </div>
+      <div class="row-fluid">
+        <div class="span4 label">
+            <a href="https://www.loire-atlantique.fr/jcms/services/jeunesse-fr-c_5028" class="printHide" title="Retourner au sommaire : Jeunesse">
+              <img alt="Retourner au sommaire : Jeunesse" src="https://www.loire-atlantique.fr/upload/docs/image/png/2013-08/picto-service-jeunesse.png" class="section-icon">
+            </a>
+            <h1>Jeunesse</h1>
+          </div>
+          <div class="span8 menu hidden-phone printHide">
+        <div class="sep-visible-desktop dropdown dropdown-partage">
+        <!-- TODO : Bizarre, ce n'est pas le même code pour les liens que le menu du haut -->
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Ouvrir le menu de partage" tabindex="0" role="button"><img class="spr-picto-partage tablet-icon hidden-desktop hidden-phone" alt="" src="https://www.loire-atlantique.fr/s.gif">Partager<img class="spr-picto-partage hidden-tablet hidden-phone" alt="" src="https://www.loire-atlantique.fr/s.gif"></a><script src="https://apis.google.com/js/client.js" gapi_processed="true"></script>
+          <ul class="dropdown-menu share-dropdown"><li><a title="Partager sur Facebook - Nouvelle fenêtre" rel="nofollow" class="share-link facebook" href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941" data-url="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?category=t1_12458&amp;portal=aca_6941"><span class="social-icon spr-picto-facebook"></span><span>Facebook</span></a></li><li><a title="Partager sur Twitter - Nouvelle fenêtre" rel="nofollow" class="share-link twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941&amp;tw_p=tweetbutton&amp;via=loireatlantique" data-url="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?category=t1_12458&amp;portal=aca_6941" data-site="loireatlantique"><span class="social-icon spr-picto-twitter"></span><span>Twitter</span>
+            </a></li><li><a title="Partager sur Google+ - Nouvelle fenêtre" rel="nofollow" class="share-link google-plus" href="https://plus.google.com/share?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941"><span class="social-icon spr-picto-googleplus"></span><span>Google +</span></a></li><li class="hide show-js-inline"><a title="Partager sur Pinterest - Nouvelle fenêtre" rel="nofollow" class="share-link pinterest" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941"><span class="social-icon spr-picto-pinterest"></span><span>Pinterest</span></a></li></ul><noscript>&lt;script src="https://apis.google.com/js/client.js"&gt;&lt;/script&gt;&lt;ul class=""&gt;&lt;li&gt;&lt;a title="Partager sur Facebook - Nouvelle fenêtre" rel="nofollow" class="share-link facebook" href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941" data-url="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?category=t1_12458&amp;portal=aca_6941"&gt;&lt;span class="social-icon spr-picto-facebook"&gt;&lt;/span&gt;&lt;span&gt;Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a title="Partager sur Twitter - Nouvelle fenêtre" rel="nofollow" class="share-link twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941&amp;amp;tw_p=tweetbutton&amp;amp;via=loireatlantique" data-url="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?category=t1_12458&amp;portal=aca_6941" data-site='loireatlantique'&gt;&lt;span class="social-icon spr-picto-twitter"&gt;&lt;/span&gt;&lt;span&gt;Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a title="Partager sur Google+ - Nouvelle fenêtre" rel="nofollow" class="share-link google-plus" href="https://plus.google.com/share?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941"&gt;&lt;span class="social-icon spr-picto-googleplus"&gt;&lt;/span&gt;&lt;span&gt;Google +&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class="hide show-js-inline"&gt;&lt;a title="Partager sur Pinterest - Nouvelle fenêtre" rel="nofollow" class="share-link pinterest" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.loire-atlantique.fr%2Fjcms%2Fclassement-des-contenus%2Fguides-aides%2Fvous-etes%2Fjeune%2Fl-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944%3Fcategory%3Dt1_12458%26portal%3Daca_6941"&gt;&lt;span class="social-icon spr-picto-pinterest"&gt;&lt;/span&gt;&lt;span&gt;Pinterest&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</noscript>
+          </div>
+        <div class="hidden-tablet hidden-phone hide-touch">
+          <!-- TODO : fonction imprimer à débattre -->
+            <a href="https://www.loire-atlantique.fr/jcms/classement-des-contenus/guides-aides/vous-etes/jeune/l-aide-au-permis-de-conduire-pour-les-jeunes-fr-t1_17944?printView=true&amp;portal=j_55&amp;category=t1_12458" rel="nofollow">Imprimer<img class="spr-picto-impression" alt="" src="https://www.loire-atlantique.fr/s.gif"></a>
+        </div>
+          </div>
+      </div>
+      <div class="headstall-model3-navigation-container printHide">
+      <div class="openingArrow slider-bar-skinable-service-summary">
+          <div class="backgroundArrow previousBorder"></div>
+            <a href="#" class="focus-link" id="main-navigation">
+              <div class="backgroundArrow" style="background-color:#aec900;">
+                <img src="https://www.loire-atlantique.fr/s.gif" class="spr-chevron-blanc-on hide" alt="Afficher le sommaire : Jeunesse">
+                <img src="https://www.loire-atlantique.fr/s.gif" class="spr-chevron-blanc-off" alt="Masquer le sommaire : Jeunesse">
+              </div>
+              <h2 class="show-title-text">Afficher le sommaire : Jeunesse</h2>
+                <h2 class="hide-title-text hidden">Masquer le sommaire : Jeunesse</h2>
+            </a>
+          </div>
+      </div>
+      <div class="targetArrow close-at-beginning" style="display: none;">
+      <div class="pqf-service-summary-container">
+        <div class="row-fluid">
+          <div class="span6">
+                <ul class="level-1">
+                  <li style="border-bottom: none;"><div class="link">
+                      <span class="spr-puce"></span><p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/la-formation-fr-aca_5847" title="La formation">La formation</a></p>
+                    </div>                              
+                  </li><li style="border-bottom: none;"><div class="link">
+                      <span class="spr-puce"></span><p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/l-entree-dans-la-vie-active-fr-aca_5848" title="L'entrée dans la vie active">L'entrée dans la vie active</a></p>
+                    </div>                              
+                  </li><li style="border-bottom: none;"><div class="link">
+                      <span class="spr-puce"></span><p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/le-logement-fr-t1_12428" title="Le logement">Le logement</a></p>
+                    </div>                              
+                  </li><li style="border-bottom: none;"><div class="link">
+                      <span class="spr-puce"></span><p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/les-deplacements-fr-t1_12447" title="Les déplacements">Les déplacements</a></p>
+                    </div>                              
+                  </li>
+              </ul>
+            </div>
+            <div class="span6">
+                <ul class="level-1">
+                  <li style="border-bottom: none;"><div class="link">
+                    <span class="spr-puce"></span>
+                    <p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/le-service-civique/le-service-civique-fr-p2_38339?portal=aca_6941&amp;category=p2_38308" title="Le service civique">Le service civique</a></p>
+                  </div>
+                </li><li style="border-bottom: none;"><div class="link">
+                    <span class="spr-puce"></span>
+                    <p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/l-engagement-associatif-fr-t1_12476" title="L'engagement associatif">L'engagement associatif</a></p>
+                  </div>
+                </li><li style="border-bottom: none;"><div class="link">
+                    <span class="spr-puce"></span>
+                    <p><a href="https://www.loire-atlantique.fr/jcms/services/jeunesse/les-lieux-d-information-fr-t1_12527" title="Les lieux d'information">Les lieux d'information</a></p>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+   
    <div id="page" {% block page-args %}{% endblock %}>
     <header>
     <div id="header-wrapper" >
@@ -111,32 +325,137 @@
 
     </div> <!-- #main-content -->
     </div> <!-- #main-content-wrapper -->
+  </div> <!-- #page -->
 
-   <footer>
+  <footer id="footer" class="printHide">
     {% block footer-top %}{% endblock %}
-    <div id="footer-wrapper">
-    <div id="footer">
-      {% block footer %}
-      <p id="legal">Copyright © 2005-2016 Entr'ouvert</p>
-      {% endblock %}
-    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="openingArrow slider-bar-navigation close-toggle-phone">
+            <div class="footer-width">
+              <div class="backgroundArrow previousBorder hidden-phone"></div>
+              <a href="#" class="focus-link"><div class="backgroundArrow" style="background-color:#AEC900;">
+              <img src="https://www.loire-atlantique.fr/s.gif" class="spr-chevron-blanc-on" alt="Fermer le bloc : Tout savoir sur le Département">
+                  <img src="https://www.loire-atlantique.fr/s.gif" class="spr-chevron-blanc-off hide" alt="Ouvrir le bloc : Tout savoir sur le Département">
+                </div>
+                <h1>Tout savoir sur le Département</h1></a>
+          </div>
+        </div>
+        <div class="targetArrow">
+          <div class="knowAllAboutDepartment row-fluid footer-width">
+              <div class="span12">
+              <ul class="menuColumns">
+                  <li>
+                    <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/elu-es-fr-c_5072" title="Élu-es">Élu-es</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/communes-de-loire-atlantique-fr-c_5077" title="Communes de Loire-Atlantique">Communes de Loire-Atlantique</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/cantons-de-loire-atlantique-fr-p2_177785" title="Cantons de Loire-Atlantique">Cantons de Loire-Atlantique</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/decisions-et-budget-fr-c_5073" title="Décisions et budget">Décisions et budget</a></p>
+                    </li><li>
+                    <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/missions-et-politiques-publiques-fr-c_5075" title="Missions et politiques publiques">Missions et politiques publiques</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/organisation-des-services-fr-c_5076" title="Organisation des services">Organisation des services</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/fiche-d-identite-de-la-loire-atlantique-fr-c_5080" title="Fiche d'identité de la Loire-Atlantique">Fiche d'identité de la Loire-Atlantique</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p style="display: table-cell"><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/organismes-associes-fr-p1_56048" title="Organismes associés">Organismes associés</a></p>
+                    </li><li>
+                        <img src="https://www.loire-atlantique.fr/s.gif" alt="" title="menu actif" class="spr-chevron-tout-savoir">
+                        <p><a href="https://www.loire-atlantique.fr/jcms/tout-savoir-sur-le-departement/tous-les-sites-loire-atlantiquefr-fr-p1_66257" title="Tous les sites loire-atlantique.fr">Tous les sites loire-atlantique.fr</a></p>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row-fluid footer-width">
+            <div class="span8 navigation"><div style=" text-align: left;  " class="Outter PortletNavigate ID_c_5370 dnd-header ajax-refresh-div Portlet PortletSkinable Inner  ">
+              <ul class="menuSep">
+                <li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/nous-ecrire-fr-c_5065">Nous écrire</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/mentions-legales-fr-c_5068">Mentions légales</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/plan-du-site-fr-c_5070">Plan du site</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/accessibilite-fr-c_5069">Accessibilité</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/offres-d-emplois-fr-c_5067">Offres d'emplois</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/marches-publics-fr-t1_8545">Marchés publics</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/espace-presse-fr-c_5066">Espace presse</a>
+                </li><li>
+                  <img src="https://www.loire-atlantique.fr/s.gif" alt="" class="spr-chevron-noir-off"> 
+                  <a href="https://www.loire-atlantique.fr/jcms/enquetes-publiques-fr-p2_89928">Enquêtes publiques</a>
+                </li>
+          </ul>
+        </div>
+      </div>
+          <div class="span1 logo">
+        <a href="http://www.loire-atlantique.fr/"><img src="https://www.loire-atlantique.fr/upload/docs/image/png/2013-08/pied-logo.png" alt="loire-atlantique.fr" title="loire-atlantique.fr" style="border:0; text-align:center; vertical-align: middle; "></a>
+      </div>
+          <div class="span3 socialNetwork">
+
+        <div class="social-networks-footer">
+          <ul>
+            <li>
+                <!-- TODO Pb modale -->
+                <a class="modal modal-cg hide show-not-touch-inline" data-jalios-modal-url="plugins/ToolsPlugin/jsp/modal/pubModal.jsp?pub=c_5026?portal=aca_7696&amp;category=c_5026&amp;jsp=plugins/CorporateIdentityPlugin/jsp/modal/rssModal.jsp" href="plugins/ToolsPlugin/jsp/modal/pubModal.jsp?pub=c_5026?portal=aca_7696&amp;category=c_5026&amp;jsp=plugins/CorporateIdentityPlugin/jsp/modal/rssModal.jsp" data-color="#aec900" title="RSS du Département de Loire-Atlantique "><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-rss" alt="RSS du Département de Loire-Atlantique "><span class="show-background-image-disabled">RSS du Département de Loire-Atlantique </span></a><a class="show-touch-inline" href="plugins/ToolsPlugin/jsp/modal/pubModal.jsp?pub=c_5026?portal=aca_6941&amp;category=c_5026&amp;jsp=plugins/CorporateIdentityPlugin/jsp/modal/rssModal.jsp" title="RSS du Département de Loire-Atlantique "><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-rss" alt="RSS du Département de Loire-Atlantique "><span class="show-background-image-disabled">RSS du Département de Loire-Atlantique </span></a>
+            </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/facebook-fr-aca_6754" title="Facebook du Département de Loire-Atlantique" rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-facebook" alt="Facebook du Département de Loire-Atlantique"><span class="show-background-image-disabled">Facebook du Département de Loire-Atlantique</span></a>
+              </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/twitter-fr-aca_6755" title="Twitter du Département de Loire-Atlantique" rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-twitter" alt="Twitter du Département de Loire-Atlantique"><span class="show-background-image-disabled">Twitter du Département de Loire-Atlantique</span></a>
+            </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/flickr-fr-aca_6756" title="Flickr du Département de Loire-Atlantique " rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-flickr" alt="Flickr du Département de Loire-Atlantique "><span class="show-background-image-disabled">Flickr du Département de Loire-Atlantique </span></a>
+            </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/youtube-fr-aca_6757" title="Youtube du Département de Loire-Atlantique " rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-youtube" alt="Youtube du Département de Loire-Atlantique "><span class="show-background-image-disabled">Youtube du Département de Loire-Atlantique </span></a>
+            </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/pinterest-fr-aca_6758" title="Pinterest du Département de Loire-Atlantique " rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-pinterest" alt="Pinterest du Département de Loire-Atlantique "><span class="show-background-image-disabled">Pinterest du Département de Loire-Atlantique </span></a>
+            </li><li>
+              <a href="https://www.loire-atlantique.fr/jcms/reseaux-sociaux-pied-de-page/instagram-fr-aca_6759" title="Instagram du Département de Loire-Atlantique " rel="nofollow"><img src="https://www.loire-atlantique.fr/s.gif" class="spr-picto-instagram" alt="Instagram du Département de Loire-Atlantique "><span class="show-background-image-disabled">Instagram du Département de Loire-Atlantique </span></a>
+            </li>
+          </ul>
+         </div>
     </div>
     {% block footer-bottom %}{% endblock %}
-   </footer>
-   </div> <!-- #page -->
-   {% if environment_label %}<span id="environment-label">{{ environment_label }}</span>{% endif %}
-   <a style="display: none" href="#" accesskey="t">Retour en haut de page</a>
-   {% if cnil_compliant_visits_tracking_js %}
+  </footer> 
+  
+
+  {% if environment_label %}<span id="environment-label">{{ environment_label }}</span>{% endif %}
+  <a style="display: none" href="#" accesskey="t">Retour en haut de page</a>
+  {% if cnil_compliant_visits_tracking_js %}
      <script type="text/javascript">
      {{ cnil_compliant_visits_tracking_js|safe }}
      </script>
-   {% elif visits_tracking_js %}
+  {% elif visits_tracking_js %}
      <script type="text/javascript" src="{{ site_base }}{% static 'js/cookie_usage_consent.js' %}?{{statics_hash}}"></script>
      <script type="text/javascript">
        if (has_consent()) {
         {{ visits_tracking_js|safe }}
        }
      </script>
-   {% endif %}
+  {% endif %}
   </body>
 </html>
