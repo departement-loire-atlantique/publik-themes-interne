@@ -1,9 +1,9 @@
-VERSION=`git describe | sed 's/^v//; s/-/./g' `
-NAME="la-publik-themes"
+VERSION := $(shell git describe --tags --abbrev=0)
+NAME := la-publik-themes
 
 prefix = /usr
 
-all: icons css
+all: css
 
 # Needed to compile form SASS publik include (called in publik.scss)
 data_uris:
@@ -14,10 +14,9 @@ css: data_uris
 	cd static/loireatlantique/ && sass style.scss:style.css
 	rm -rf static/*/.sass-cache/
 
-icons:
-
 clean:
 	rm -rf sdist
+	rm -f static/*/_data_uris.scss
 
 DIST_FILES = \
 	Makefile \
@@ -33,41 +32,18 @@ dist: clean
 	done
 
 install:
-	# Create or empty a folder for custom templates
-	if [ -d $(DESTDIR)$(prefix)/share/publik/themes/loireatlantique ] ; then \
-		rm -Rf $(DESTDIR)$(prefix)/share/publik/themes/loireatlantique; \
-	fi
-	mkdir -p $(DESTDIR)$(prefix)/share/publik/themes/loireatlantique
-	cp -r static templates themes.json desc.xml $(DESTDIR)$(prefix)/share/publik/themes/loireatlantique
-	
-	# Create a link for custom wcs templates"
-	mkdir -p $(DESTDIR)$(prefix)/share/wcs/themes/
-	if [ -e $(DESTDIR)$(prefix)/share/wcs/themes/loireatlantique ] ; then \
-		rm $(DESTDIR)$(prefix)/share/wcs/themes/loireatlantique; \
-	else \
-		ln -s $(prefix)/share/publik/themes/loireatlantique $(DESTDIR)$(prefix)/share/wcs/themes/loireatlantique; \
-	fi
-
 	# Create a link for static files (js, css, images, ...) into the public base theme directory
 	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static
-	if [ -e $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique ] ; then \
-		rm $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique; \
-	fi
-	ln -s $(prefix)/share/publik/themes/loireatlantique/static/loireatlantique $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique 	
+	ln -sf $(CURDIR)/sdist/$(NAME)-$(VERSION)/static/loireatlantique $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique 	
 
 	# Create a link for custom templates into the public base theme directory
 	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants
-	if [ -e $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique ] ; then \
-		rm $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique; \
-	fi
-	ln -s $(prefix)/share/publik/themes/loireatlantique/templates $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique 
+	ln -sf $(CURDIR)/sdist/$(NAME)-$(VERSION)/templates $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique 
 
-	@echo "\n------------- \n- Success ! -\n-------------"
-
-dist-bzip2: dist
-		@echo 'Error, publik base theme has not been installed'; \
-	-mkdir sdist
-	cd sdist && tar cfj ../sdist/$(NAME)-$(VERSION).tar.bz2 $(NAME)-$(VERSION)
+	# Link themes.json
+	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json ; \
+        rm $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json ; \
+        ln -s $(CURDIR)/sdist/$(NAME)-$(VERSION)/themes.json $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json	
 
 version:
 	@(echo $(VERSION))

@@ -1,4 +1,11 @@
 [
+  {"id": "publik",
+   "label": "Publik",
+   "variables": {
+     "css_variant": "publik",
+     "theme_color": "#E80E89"
+   }
+  },
   {"id": "loireatlantique",
    "label": "Loire Atlantique",
    "variables": {
@@ -7,5 +14,5 @@
      "favicon": "loireatlantique/favicon.png",
      "no_extra_js": true,
      "theme_color": "#AEC900"
-   }}
+  }}
 ]
