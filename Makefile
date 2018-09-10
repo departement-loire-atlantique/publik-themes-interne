@@ -13,7 +13,7 @@ css: data_uris
 	rm -rf static/*/.sass-cache/
 
 clean:
-	rm -f static/*/_data_uris.scss ; \
+	rm -f publik-base-theme/static/includes/_data_uris.scss ; \
         rm -rf $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique ; \
         rm -rf $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique
         
