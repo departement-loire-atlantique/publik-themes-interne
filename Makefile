@@ -5,7 +5,7 @@ prefix = /usr
 all: css
 
 data_uris:
-	python make_data_uris.py static/loireatlantique/
+	python make_data_uris.py static/loireatlantique/images/ publik-base-theme/static/includes/img/ static/loireatlantique/_data_uris.scss
 
 css: export LC_ALL=C.UTF-8
 css: data_uris
