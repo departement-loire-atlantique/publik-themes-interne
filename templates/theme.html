@@ -13,12 +13,6 @@
     {% endif %}
     {% if favicon %}
     <link rel="shortcut icon" href="{{site_base}}{% static "" %}{{favicon}}" />
-    <link rel="shortcut icon" sizes="196x196" href="{{site_base}}{% static "" %}icon_196x196.png">
-    <link rel="apple-touch-icon" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_60x60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_76x76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_120x120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://www.loire-atlantique.fr/plugins/CorporateIdentityPlugin/images/icon_152x152.png">
     {% endif %}
     {% if theme_color %}
     <meta name="theme-color" content="{{theme_color}}">
@@ -52,7 +46,15 @@
      {% block header-top %}{% endblock %}
      <div id="top">
        {% block header-title %}
-       <h1 id="logo"><a accesskey="1" href="{{ logo_link_url|default:'/' }}">{{ site_title }}</a></h1>
+       <div id="bandeau">
+            <a href="http://www.loire-atlantique.fr" target="blank"><img alt="Accès au site du Département de Loire-Atlantique (Nouvelle fenêtre)" title="Accès au site du Département de Loire-Atlantique (Nouvelle fenêtre)" src="https://www.loire-atlantique.fr/s.gif"></a>
+        </div>
+       <h1 id="logo">
+          <a href="https://demarches-validation.loire-atlantique.fr/">
+            <img src="https://demarches-validation.loire-atlantique.fr/static/loireatlantique/images/demarches-logo.png" alt="Retour à l'accueil du site" title="Retour à l'accueil du site" >
+          </a>
+          <a accesskey="1" href="{{ logo_link_url|default:'/' }}">{{ site_title }}</a>
+      </h1>
        {% endblock %}
         <div id="toplinks">
           {% block user-info %}
@@ -125,9 +127,19 @@
     {% block footer-top %}{% endblock %}
     <div id="footer-wrapper">
     <div id="footer">
-      {% block footer %}
-      <p id="legal">Copyright © 2005-2016 Entr'ouvert</p>
-      {% endblock %}
+      <div class="navigation-service grid-10-12">
+        {% block footer %}
+        <p id="legal">Copyright © 2005-2016 Entr'ouvert</p>
+        {% endblock %}
+        <div class="service grid-4-12 to-the-right">
+            <img src="https://demarches-validation.loire-atlantique.fr/static/loireatlantique/images/un_service_du_depla.png" alt="Un service du Département" title="Un service du Département">
+        </div>
+      </div>
+      <div class="logo grid-2-12 to-the-right">
+          <a href="http://www.loire-atlantique.fr/">
+            <img src="https://demarches-validation.loire-atlantique.fr/static/loireatlantique/images/pied-logo.png" alt="Accès au site du Département de Loire-Atlantique" title="Accès au site du Département de Loire-Atlantique">
+          </a>
+      </div>
     </div>
     </div>
     {% block footer-bottom %}{% endblock %}

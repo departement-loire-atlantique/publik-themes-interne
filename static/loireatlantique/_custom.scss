@@ -2,3 +2,183 @@
 div#page {
 	min-height: 0;
 }
+
+a {
+	text-decoration: underline;
+}
+
+#header-wrapper {
+    background-color: #dcdadb;
+    box-shadow: 0 2px 2px #cec9c2;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    div#header h1 {
+        padding-left: 0;
+    }
+}
+
+#toplinks {
+    right: 0;
+    .logged-in {
+        .connected-user, .logout {
+            padding-left: 1ex;
+            padding-right: 1ex;
+        }
+        a:first-child::after  {
+           content: "|";
+        }
+    }
+}
+
+a#publik-portal-agent {
+    background: #b2cb00;
+    border: 1px solid grey;
+    bottom: 0;
+    top: auto;
+}
+
+// on cache le menu principal du haut
+#nav-wrapper {
+    display: none;
+}
+
+// -----------------------------------------------------------------------------
+// Page suivi de démarches, 
+
+
+// sous-titres avec liseret
+div#rub_service div h2 {
+	background: transparent;
+	color: $primary-color;
+	text-transform: uppercase;
+	text-align: left;
+    border-bottom: 1px solid $primary-color;
+    font-weight: bold;
+}
+
+#evolutions:after {
+	background: $primary-color;
+	top: -1em;
+	height: 100%;
+}
+
+ul#evolutions li span.item {
+	border-color: $primary-color;
+	background: white !important;
+	color: $primary-color !important;
+	line-height: 36px;
+}
+
+ul#evolutions li:after {
+	background: $primary-color;
+}
+
+ul#evolutions div.evolution-metadata {
+	text-transform: uppercase;
+	color: #384981;
+	span.status {
+		font-weight: normal;
+	}
+}
+
+#evolutions .msg-system {
+	padding-top: 0;
+}
+
+div#content {
+	.previous-button button, .cancel-button button {
+		background-color: #bebebe;
+	}
+
+}
+
+// -----------------------------------------------------------------------------
+
+// on cache les bordures grises autour des blocs
+div.a2-continue, div#services > ul > li, div.a2-block, #content div.cell, div.block {
+    box-shadow: 2px 2px 2px #cec9c236;
+}
+
+#bandeau {
+    background-image: url('images/loire_atlantiquefr.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 304px;
+    height: 35px;
+}
+
+div.to-the-right {
+    text-align: right;
+    padding-right: 0;
+}
+
+#logo {
+    // TODO enlever l'attribut "!important"
+    // indiqué car règle sur 'div#header h1' dans _layout.scss
+    margin-top: 20px !important;
+    img {
+        display: block;
+        margin-bottom: 5px;
+        max-width: 100%;
+    }
+    // TODO le titre sous le logo doit-il est caché ?
+    a:last-child {
+        display: none;
+    }
+}
+
+nav {
+    //margin-top: 120px;
+    // titre au-dessus caché, donc marge moins importante
+    margin-top: 70px;
+}
+
+footer {
+    #footer-wrapper {
+        background: #dcdadb;
+        height: 70px;
+    }
+
+    .navigation {
+        font-family: $font-family;
+        font-size: 12px;
+        ul {
+            list-style-type: none;
+            padding-left: 1em;
+        }
+        li {
+            float: left;
+            a {
+                margin-right: 10px;
+                color:black;
+                text-decoration: none;
+            }
+                
+        }
+        li.sep {
+            &:before {
+                color: #808080;
+                content: "|";
+                padding-right: 10px;
+            }
+        }
+    }
+
+    .service {
+        margin-top: 15px;
+        padding-right: 0;
+    }
+
+    .logo {
+        margin-top: 5px;
+    }
+
+    // liseret
+    .navigation-service {
+        margin-top: 10px;
+        border-bottom: 7px solid #cec9c2;
+    }
+}
