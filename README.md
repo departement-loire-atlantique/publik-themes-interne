@@ -1,9 +1,13 @@
 # Theme for Publik by "Département de Loire Atlantique"
 
 # License
+
 This project is licensed under the terms of the MIT license.
 
 # Install
+
+```bash
 git clone https://github.com/departement-loire-atlantique/publik-themes --recurse-submodules
 cd publik-themes
 make install
+```
