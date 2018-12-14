@@ -1,0 +1,50 @@
+   <a accesskey="1" href="{{ logo_link_url|default:'/' }}">{{ site_title }}</a>
+
+
+
+   <div class="navigation grid-8-12">
+<ul>
+	<li><a href="https://demarches-validation.loire-atlantique.fr/aide">Aide</a></li>
+	<li class="sep"><a href="https://demarches-validation.loire-atlantique.fr/avis">Donnez votre avis</a></li>
+</ul>
+</div>
+
+
+
+<div id="footer-links" class="grid-10-12">
+<ul>
+	<li><a href="#">lien 1</a></li>
+	<li><a href="#">lien 2</a></li>
+</ul>
+</div>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <ul>
+            <li><a href="#">Lien</a></li>
+            <li><a href="http://loire-atlantique.fr/" target="_blank"><img src="/images/eb9c3e2e.logo-footer.png" alt="Un service du Département Loire Atlantique"></a></li>
+        </ul>
+    </div>
+</footer>
+
+            <div id="logotype-service" class="grid-2-12">
+                <img src="{{ portal_user_url }}/static/loireatlantique/images/un_service_du_depla.png" alt="Un service du Département" title="Un service du Département">
+            </div>
+
+
+
+
+{% block footer-bottom %}
+
+<div class="grid-2-12 liseret-unservice">
+    <img src="{{ portal_user_url }}/static/loireatlantique/images/un_service_du_depla.png" alt="Un service du Département" title="Un service du Département">
+</div>
+<div class="grid-2-12">
+    <a href="{{ logo_link_url|default:'/' }}">
+      <img src="{{ portal_user_url }}/static/loireatlantique/images/pied-logo.png" alt="Accès au site du Département de Loire-Atlantique" title="Accès au site du Département de Loire-Atlantique">
+    </a>
+</div>
+
+{% endblock %}

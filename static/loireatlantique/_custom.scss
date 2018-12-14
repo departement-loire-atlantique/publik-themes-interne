@@ -1,4 +1,500 @@
-// On désactive le min-height
-div#page {
-	min-height: 0;
+// -----------------------------------------------------
+//                 ENTETE DE PAGE
+// -----------------------------------------------------
+
+// Cache la bannière "Site de validation"
+#environment-label {
+    display: none;
 }
+
+#header-wrapper {
+    background-color: #dcdadb;
+    box-shadow: 0 2px 2px #cec9c2;
+    height: 28px;
+    margin-bottom: 90px;
+}
+
+// Liens de connexion / vos démarches / déconnexion
+#toplinks {
+    .logged-in {
+        .connected-user, .mes-demarches, .logout {
+            padding-left: 1ex;
+            padding-right: 1ex;
+        }
+        a:first-child {
+            color: #808080;
+            content: "|";
+        }
+        a:first-child::before {
+            content: "";
+         }
+    }
+}
+
+// Bouton "Portail agent" décalé en bas à droite
+a#publik-portal-agent {
+    color: black;
+    background: #b2cb00;
+    border: 1px solid grey;
+    // TODO comment caler en bas à droite de la page et pas du viewport ?
+    //bottom: 0;
+    //top: auto;
+    top: 33px;
+}
+
+#bandeau {
+    background-image: url('images/loire_atlantiquefr.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 304px;
+    height: 35px;
+}
+
+div.to-the-right {
+    text-align: right;
+    padding-right: 0;
+}
+
+#logo-demarches {
+    // TODO enlever l'attribut "!important"
+    // indiqué car règle sur 'div#header h1' dans _layout.scss
+    margin-top: 20px !important;
+    img {
+        display: block;
+        margin-bottom: 5px;
+        max-width: 100%;
+    }
+}
+
+// Portail usager
+
+#content {
+    #panneau-code-suivi, #tracking-code {
+    
+        background-color: $grey-color !important;
+        border: solid 2px $green-color !important;
+        margin-top: 28px !important;
+    
+        a {
+            text-decoration: underline;
+        }
+    
+        h2:first-child {
+            top: 0;
+            left: 0;
+            width: auto;
+        }
+    
+        .wcs-tracking-code-input h2:first-of-type, h3:first-of-type {
+            background-color: $grey-color !important;
+            font-family: 'WinterthurCondensed', sans-serif !important;
+            border-bottom: dotted 2px #000 !important;
+            font-size: 28px !important;
+        }
+        button {
+            margin-right: 0 !important;
+        }
+    
+        form {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    
+    }
+}
+
+#tracking-code {
+    a:first-of-type {
+        display: block;
+        text-align: center;
+        margin: 10px;
+        padding: 0;
+    }
+}
+
+// TODO lien keycloack agent à insérer en bas à droite
+#oidc-p-publik-validation {
+    display: none;
+}
+
+#a2-profile {
+    div.field {
+        margin-bottom: 20px;
+    }
+    span.label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
+h1.maintitle {
+    font-family: 'WinterthurCondensed', sans-serif;
+    font-size: 35px;
+    border-bottom: dotted 2px #000 !important;
+}
+
+div.error {
+    margin: 15px;
+    color: red;
+}
+
+.demarches-brouillon, .demarches-encours, .demarches-terminees {
+    border: 0 !important;
+}
+
+.demarches-brouillon {
+    border: solid 2px $green-color !important;
+    h2 {
+        background-color: $grey-color !important;
+        background-image: url('images/picto_brouillon.png') !important;
+    }
+}
+
+.demarches-encours {
+    border: solid 2px $green-color !important;
+    h2 {
+        background-color: $green-color !important;
+        background-image: url('images/picto_encours.png') !important;
+    }
+}
+
+.demarches-terminees {
+    border: solid 2px $green-color !important;
+    h2 {
+        background-color: $green-color !important;
+        background-image: url('images/picto_terminee.png') !important;
+    }
+}
+
+.demarches-brouillon, .demarches-encours, .demarches-terminees {
+    border: solid 2px $green-color !important;
+    h2 {
+        font-family: 'WinterthurCondensed' !important;
+        font-size: 28px !important;
+        border-bottom: 0 !important;
+        border: 2px solid $green-color !important;
+        border-bottom: 2px solid $green-color !important;
+        background-size: 30px !important;
+        background-repeat: no-repeat !important;
+        background-position: bottom 17px left 10px !important;;
+        padding-left: 50px !important;
+        display: block !important;
+    }
+}
+
+// -----------------------------------------------------
+//                 PAGE DE CONNEXION
+// -----------------------------------------------------
+
+#login-page {
+
+    background-color: $grey-color;
+    
+    .connexion-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        img { height: 30px; }
+        h1 {
+            display: inline;
+            font-family: 'WinterthurCondensed', sans-serif;
+            font-size: 28px;
+            font-weight: normal;
+            margin: 7px;
+        }
+    }
+
+    #fc-button-wrapper {
+
+        #fc-button {
+            box-shadow: none !important;
+            a {
+                background: none;
+                padding-top: 0;
+            }
+        }
+
+        div#fc-button:hover {
+            background: none;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    form {
+        margin: 10%;
+    }
+
+    div.block {
+        background-color: $grey-color;
+    }
+
+    button.cancel-button {
+        display: none;
+    }
+
+    #register-account {
+        //margin: auto;
+        //width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #register-account {
+
+        .register {
+            margin: auto;
+            background: black;
+            padding: 5px 30px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.21);
+            a {
+                margin: auto;
+                color: white;
+            }
+        }
+
+        p {
+            display: block;
+            margin: 10px auto;
+        }
+
+    }
+
+}
+
+// -----------------------------------------------------
+//                 CORPS DE LA PAGE
+// -----------------------------------------------------
+
+#evolutions:after {
+	background: black;
+	top: -1em;
+	height: 100%;
+}
+
+h1.maintitle {
+    font: "WinterthurCondensed" !important;
+    font-weight: normal !important;
+}
+
+ul#evolutions li span.item {
+	border-color: black;
+	background: white !important;
+	color: black !important;
+	line-height: 36px;
+}
+
+ul#evolutions li:after {
+	background: $primary-color;
+}
+
+ul#evolutions div.evolution-metadata {
+	text-transform: uppercase;
+	color: #384981;
+	span.status {
+		font-weight: normal;
+	}
+}
+
+#evolutions .msg-system {
+	padding-top: 0;
+}
+
+ul#evolutions span.time {
+    color: black;
+    line-height: 2.0em;
+}
+
+ul#evolutions span.user {
+    display: block;
+    opacity: 1;
+}
+
+// Boutons
+
+div#content {
+	.submit-button button, .previous-button button, .cancel-button button, .savedraft-button button {
+        font-weight: bold;
+	}
+
+}
+
+a.button {
+    display: block;
+    background: black;
+    color: white;
+    font-weight: bold;
+    width: 12rem;
+    height: 2.2rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    margin: 1rem auto
+}
+
+// CHAMPS DE FORMULAIRE
+
+
+div#steps {
+    background-color: #ececec;
+    padding: 5px;
+    border: solid 2px $primary-color;
+    ol {
+        color: #4e4e4e;
+    }
+}
+
+div#rub_service {
+    li {
+        clear: both;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-family: 'WinterthurCondensed';
+        font-size: 28px;
+        padding-bottom: 0.5ex;
+        background: none;
+    }
+
+    input[type="radio"] {
+        margin: .5em;
+    }
+
+    input[type="checkbox"] {
+        margin: .5em;
+        // float: left;
+        // margin-top: 10px;
+        // margin-left: 10px;
+        // span {
+        //     display: block;
+        //     margin-left: 30px;
+        // }
+    }
+
+    .title label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+}
+    
+#rub_service form h3 {
+    font-family: Arial;
+    font-size: 16px;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: dotted 2px black !important;
+}
+
+#rub_service form h3:first-of-type {
+    border: 0 !important;
+    margin-top: 0;
+}
+
+span.helptext, div.hint {
+    font-size: 100%;
+    font-style: italic;
+}
+
+#colums wcscurrentdraftscell, #colums .wcscurrentformscell, #colums wcscurrentformscell {
+    border: solid 2px $primary-color;
+}
+
+span.required {
+    top: 0 !important;
+    color: red !important;
+    font-weight: bold !important;
+    font-size: 1.5em !important;
+    line-height: .5em !important;
+}
+
+// -----------------------------------------------------
+//                   PIED DE PAGE
+// -----------------------------------------------------
+
+footer {
+
+    // fond du pied de page
+    font-family: $font-family;
+    font-size: 12px;
+    background: #dcdadb;
+
+    // par défaut le wrapper une couleur de fond gris sombre
+    #footer-wrapper {
+        background: none;
+    }
+
+
+    // Liens
+    // -----------------------------------------------------
+    
+    // bordure grise et logotype "Un service du Département"
+    #footer-links {
+        padding: 0 0 10px 0;
+        border-bottom: 7px solid #cec9c2;
+        background-image: url('images/un_service_du_depla.png');
+        background-repeat: no-repeat;
+        background-position: right 0 top 1em;
+    }
+
+    #logo-loire-atlantique {
+        text-align: right;
+        padding-right: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1em;
+    }
+
+    li {
+        float: left;
+        a {
+            margin-right: 10px;
+            color:black;
+            text-decoration: none;
+        }
+            
+    }
+
+    // séparateur vertical entre les liens 
+    li {
+        &:before {
+            color: #808080;
+            content: "|";
+            padding-right: 10px;
+        }
+    }
+    // pas séparateur avant le premier lien
+    li:first-child {
+        &:before {
+            content: "";
+        }
+    }
+
+    //version mobile du pied de page
+    // -----------------------------------------------------
+    @media screen and (max-width: $mobile-limit) {
+        #footer-links {
+            background: none;
+            border: none;
+        }
+        #logo-loire-atlantique {
+            padding-right: 1ex;
+        }
+    }
+    @media screen and (max-width: $very-small-limit) {
+        #logo-loire-atlantique {
+            padding-right: 1ex;
+        }
+    }
+
+ }

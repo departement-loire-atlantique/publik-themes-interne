@@ -1,11 +1,9 @@
-VERSION := $(shell git describe --tags --abbrev=0)
 NAME := la-publik-themes
 
 prefix = /usr
 
 all: css
 
-# Needed to compile form SASS publik include (called in publik.scss)
 data_uris:
 	cd publik-base-theme && python make_data_uris.py static/includes/
 
@@ -15,35 +13,24 @@ css: data_uris
 	rm -rf static/*/.sass-cache/
 
 clean:
-	rm -rf sdist
-	rm -f static/*/_data_uris.scss
-
-DIST_FILES = \
-	Makefile \
-	desc.xml \
-	static templates themes.json \
-
-dist: clean
-	-mkdir sdist
-	rm -rf sdist/$(NAME)-$(VERSION)
-	mkdir -p sdist/$(NAME)-$(VERSION)
-	for i in $(DIST_FILES); do \
-		cp -R "$$i" sdist/$(NAME)-$(VERSION); \
-	done
-
-install:
+	rm -f publik-base-theme/static/includes/_data_uris.scss ; \
+        rm -rf $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique ; \
+        rm -rf $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique
+        
+install: css
 	# Create a link for static files (js, css, images, ...) into the public base theme directory
 	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static
-	ln -sf $(CURDIR)/sdist/$(NAME)-$(VERSION)/static/loireatlantique $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/loireatlantique 	
+	cp -R static/loireatlantique $(DESTDIR)$(prefix)/share/publik/themes/publik-base/static/ 	
 
 	# Create a link for custom templates into the public base theme directory
 	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants
-	ln -sf $(CURDIR)/sdist/$(NAME)-$(VERSION)/templates $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique 
+	mkdir -p $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique
+	cp -R templates/* $(DESTDIR)$(prefix)/share/publik/themes/publik-base/templates/variants/loireatlantique/ 
 
-	# Link themes.json
+	# Keep only publik and loireatlantique themes (delete link to other themes) 
 	test -d $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json ; \
         rm $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json ; \
-        ln -s $(CURDIR)/sdist/$(NAME)-$(VERSION)/themes.json $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json	
+        cp themes.json $(DESTDIR)$(prefix)/share/publik/themes/publik-base/themes.json	
 
 version:
 	@(echo $(VERSION))

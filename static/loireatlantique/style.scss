@@ -1,13 +1,3 @@
-@charset "UTF-8";
-
-$primary-color: #aec900;
-
-$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-size: 14px;
-$link-color: #000000;
-$button-color: white;
-$button-background: $primary-color;
-$cell-border: 0;
-
+@import 'vars';
 @import '../../publik-base-theme/static/includes/publik';
-@import 'custom'; 
+@import 'custom';

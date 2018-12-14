@@ -1,0 +1,37 @@
+{% extends "../../authentic2/login.html" %}
+
+{% block content %}
+
+
+<div id="login-page" class="methods{{methods|length}}">
+    
+<div class="connexion-title">
+    <img src="https://demarches-validation.loire-atlantique.fr/static/loireatlantique/images/pied-logo.png" alt="Logo du Département de Loire-Atlantique" title="Logo du Département de Loire-Atlantique">
+    <h1>Connexion aux services en ligne du Département de Loire-Atlantique</h1>
+</div>
+
+{% for name, content in methods %}
+<div class="block">
+{% if methods|length == 1 %}
+<h2>{% if forloop.counter0 %}{{name}}{% else %}Connexion{% endif %}</h2>
+{% endif %}
+<div>
+{{ content|safe }}
+</div>
+</div>
+{% endfor %}
+
+<br class="clear"/>
+
+{% block login-welcome-text %}
+<div id="register-account">
+    <div class="register"><a href="{{root_url}}/accounts/register/">Créer un compte</a></div>
+    <p>Créer un compte vous permet de suivre plus simplement vos démarches en ligne</p>
+</div>
+{% endblock %}
+
+</div>
+
+<p>Ce service du Département de Loire-Atlantique permet de simplifier l'accès aux démarches en ligne avec un seul et même compte. </p>
+
+{% endblock %}
