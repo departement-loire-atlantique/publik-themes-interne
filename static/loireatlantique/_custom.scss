@@ -268,6 +268,13 @@ div.error {
 //                 CORPS DE LA PAGE
 // -----------------------------------------------------
 
+.text-check-before-submit {
+    color: red;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: normal;
+}
+
 #evolutions:after {
 	background: black;
 	top: -1em;
@@ -335,6 +342,9 @@ a.button {
 
 // CHAMPS DE FORMULAIRE
 
+div#gauche {
+    width: 17%;
+}
 
 div#steps {
     background-color: #ececec;
@@ -342,16 +352,20 @@ div#steps {
     border: solid 2px $primary-color;
     ol {
         color: #4e4e4e;
+        li span.marker {
+            font-size: 18px;
+        }
     }
 }
 
 div#rub_service {
     li {
         clear: both;
-        margin-bottom: 10px;
+        margin-bottom: 3px;
     }
 
     h2 {
+        text-align: left;
         font-family: 'WinterthurCondensed';
         font-size: 28px;
         padding-bottom: 0.5ex;
@@ -375,15 +389,14 @@ div#rub_service {
 
     .title label {
         display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 3px;
         font-weight: bold;
     }
 }
     
 #rub_service form h3 {
     font-family: Arial;
-    font-size: 16px;
+    font-size: 18px;
     padding-top: 1.5rem;
     margin-top: 1.5rem;
     border-top: dotted 2px black !important;
