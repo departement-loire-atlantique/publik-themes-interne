@@ -14,6 +14,16 @@
     margin-bottom: 90px;
 }
 
+#rub_service.has-sidebox  {
+    a {
+        text-decoration: underline;
+    }
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 // Liens de connexion / vos démarches / déconnexion
 #toplinks {
     .logged-in {
@@ -30,6 +40,8 @@
          }
     }
 }
+
+// 
 
 // Bouton "Portail agent" décalé en bas à droite
 a#publik-portal-agent {
@@ -73,7 +85,7 @@ div.to-the-right {
     
         background-color: $grey-color !important;
         border: solid 2px $green-color !important;
-        margin-top: 28px !important;
+        padding: 10px;
     
         a {
             text-decoration: underline;
@@ -84,6 +96,10 @@ div.to-the-right {
             left: 0;
             width: auto;
         }
+
+        h3:first-child {
+            padding: 5px;
+        }
     
         .wcs-tracking-code-input h2:first-of-type, h3:first-of-type {
             background-color: $grey-color !important;
@@ -93,6 +109,7 @@ div.to-the-right {
         }
         button {
             margin-right: 0 !important;
+            height: 3em;
         }
     
         form {
@@ -166,7 +183,7 @@ div.error {
     border: solid 2px $green-color !important;
     h2 {
         font-family: 'WinterthurCondensed' !important;
-        font-size: 28px !important;
+        font-size: 32px !important;
         border-bottom: 0 !important;
         border: 2px solid $green-color !important;
         border-bottom: 2px solid $green-color !important;
@@ -187,45 +204,51 @@ div.error {
     background-color: $grey-color;
     
     .connexion-title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
+        padding: 20px;
         img { height: 30px; }
         h1 {
-            display: inline;
+            display: block;
             font-family: 'WinterthurCondensed', sans-serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: normal;
             margin: 7px;
+            padding-bottom: 10px;
+            border-bottom: 2px dotted black;
         }
     }
 
-    #fc-button-wrapper {
-
-        #fc-button {
-            box-shadow: none !important;
-            a {
-                background: none;
-                padding-top: 0;
-            }
-        }
-
-        div#fc-button:hover {
-            background: none;
-        }
-
-        a {
-            text-decoration: underline;
+    .block.connexion.motdepasse {
+        .or {
+            width: 1em;
+            position: relative;
+            top: -160px;
+            left: 280px;
+            border-radius: 50%;
+            padding: 5px !important;
+            background-color: $grey-color;
+            border: solid 1px grey;
         }
     }
 
-    form {
-        margin: 10%;
-    }
-
-    div.block {
+    div.block.connexion {
         background-color: $grey-color;
+        padding: 10px;
+        margin: 1em !important;
+        min-height: 320px;
+        div {
+            padding: 0 !important;
+        }
+    }
+    
+    div.block.connexion.motdepasse {
+        border-right: dotted 1px black;
+        h3, form {
+            padding-left: 20px;
+        }
+    }
+
+    div.block.connexion.creercompte {
+        border-left: dotted 1px black;
     }
 
     button.cancel-button {
@@ -233,25 +256,17 @@ div.error {
     }
 
     #register-account {
-        //margin: auto;
-        //width: 50%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    #register-account {
-
+        padding-left: 20px;
         .register {
-            margin: auto;
-            background: black;
-            padding: 5px 30px;
-            cursor: pointer;
-            border: 1px solid transparent;
-            box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.21);
             a {
+                display: inline-block;
                 margin: auto;
                 color: white;
+                background: black;
+                padding: 5px 15px 5px 15px !important;
+                cursor: pointer;
+                border: 1px solid transparent;
+                box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.21);
             }
         }
 
@@ -264,9 +279,49 @@ div.error {
 
 }
 
+#fc-button-wrapper {
+
+    #fc-button {
+        box-shadow: none !important;
+        a {
+            background: none;
+            padding-top: 0;
+        }
+    }
+
+    div#fc-button:hover {
+        background: none;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+#login-page-encart {
+    padding: 10px;
+    margin-top: 30px;
+    border: solid 2px $green-color !important;
+}
+
+// Création d'un compte
+// Suppression des puces devant les listes (ex. sur civilité)
+
+ul#id_title {
+    list-style: none;
+}
+
 // -----------------------------------------------------
 //                 CORPS DE LA PAGE
 // -----------------------------------------------------
+
+#rub_service {
+    font-size: 15px;
+}
+
+#content p {
+    line-height: 1.5em;
+}
 
 .text-check-before-submit {
     color: red;
@@ -284,6 +339,12 @@ div.error {
 h1.maintitle {
     font: "WinterthurCondensed" !important;
     font-weight: normal !important;
+}
+
+#rub_service:not(.has-sidebox) {
+    > h2::before {
+        content: "Suivi de votre demande ";
+    }
 }
 
 ul#evolutions li span.item {
@@ -333,7 +394,7 @@ a.button {
     background: black;
     color: white;
     font-weight: bold;
-    width: 12rem;
+    width: 14rem;
     height: 2.2rem;
     padding-top: 0.5rem;
     text-align: center;
@@ -358,6 +419,31 @@ div#steps {
     }
 }
 
+div#summary {
+    h2:first-child {
+        display: none;
+    }
+}
+
+div.back-home-button a, div#summary a {
+    background: black;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    margin-right: 2ex;
+    height: 1.8em;
+    vertical-align: middle;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.21);
+}
+
+div#summary a {
+    padding-top: 8px !important;
+    width: 230px;
+    text-align: center;
+}
+
 div#rub_service {
     li {
         clear: both;
@@ -367,8 +453,8 @@ div#rub_service {
     h2 {
         text-align: left;
         font-family: 'WinterthurCondensed';
-        font-size: 28px;
-        padding-bottom: 0.5ex;
+        font-size: 32px;
+        padding: 0 0 0.5ex 0;
         background: none;
     }
 
@@ -396,7 +482,7 @@ div#rub_service {
     
 #rub_service form h3 {
     font-family: Arial;
-    font-size: 18px;
+    font-size: 20px;
     padding-top: 1.5rem;
     margin-top: 1.5rem;
     border-top: dotted 2px black !important;
@@ -469,6 +555,9 @@ footer {
             margin-right: 10px;
             color:black;
             text-decoration: none;
+        }
+        a:hover  {
+            text-decoration: underline;
         }
             
     }
