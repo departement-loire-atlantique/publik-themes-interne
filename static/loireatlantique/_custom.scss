@@ -289,15 +289,15 @@ div.error {
 }
 
 #fc-button-wrapper {
-
+   
     #fc-button {
         box-shadow: none !important;
         div {
-            background-color: black;
+            color: black;
             padding: 10px 5px;
         }
         a {
-            background: none;
+            background: none; 
             padding-top: 0;
         }
     }
