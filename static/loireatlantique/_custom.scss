@@ -339,7 +339,9 @@ ul#id_title {
 // -----------------------------------------------------
 
 #rub_service {
-    font-size: 15px;
+    p, label, input, div.hint {
+        font-size: 15px;
+    }
 }
 
 #content p {
@@ -514,6 +516,10 @@ div#rub_service {
 #rub_service form h3:first-of-type {
     border: 0 !important;
     margin-top: 0;
+}
+
+#rub_service form h4 {
+    font-size: 18px;
 }
 
 span.helptext, div.hint {
