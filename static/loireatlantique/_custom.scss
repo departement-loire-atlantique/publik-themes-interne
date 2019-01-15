@@ -227,6 +227,9 @@ div.error {
             padding: 5px !important;
             background-color: $grey-color;
             border: solid 1px grey;
+            @media (max-width: 1000px) {
+                display: none;
+            }
         }
     }
 
@@ -242,6 +245,9 @@ div.error {
     
     div.block.connexion.motdepasse {
         border-right: dotted 1px black;
+        @media (max-width: 800px) {
+            border: none;
+        }
         h3, form {
             padding-left: 20px;
         }
@@ -249,6 +255,9 @@ div.error {
 
     div.block.connexion.creercompte {
         border-left: dotted 1px black;
+        @media (max-width: 800px) {
+            border: none;
+        }
     }
 
     button.cancel-button {
@@ -283,6 +292,10 @@ div.error {
 
     #fc-button {
         box-shadow: none !important;
+        div {
+            background-color: black;
+            padding: 10px 5px;
+        }
         a {
             background: none;
             padding-top: 0;
