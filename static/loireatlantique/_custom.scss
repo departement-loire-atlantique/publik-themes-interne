@@ -195,6 +195,18 @@ div.error {
     }
 }
 
+div.buttons.submit {
+    div.submit-button {
+        float: right;
+    }
+    div.cancel-button {
+        display: none;
+    }
+    button {
+        font-size: 15px;
+    }
+}
+
 // -----------------------------------------------------
 //             INTRODUCTION SI NON CONNECTE
 // -----------------------------------------------------
