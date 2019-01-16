@@ -462,7 +462,7 @@ div#summary {
     }
 }
 
-div.back-home-button a, div#summary a {
+div.back-home-button a, a#disclose-dataview {
     background: black;
     color: white;
     padding: 5px 15px;
@@ -475,7 +475,7 @@ div.back-home-button a, div#summary a {
     box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.21);
 }
 
-div#summary a {
+a#disclose-dataview {
     padding-top: 8px !important;
     width: 230px;
     text-align: center;
