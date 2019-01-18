@@ -11,8 +11,8 @@
    "variables": {
      "css_variant": "loireatlantique",
      "logo_link_url": "http://www.loire-atlantique.fr/",
-     "favicon": "loireatlantique/favicon.png",
+     "favicon": "images/favicon.png",
      "no_extra_js": true,
-     "theme_color": "#AEC900"
-  }}
+     "theme_color": "#AEC900",
+     "email_header_img": "images/email-logo-header.png"
 ]
