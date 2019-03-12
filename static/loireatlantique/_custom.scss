@@ -81,6 +81,11 @@ div.to-the-right {
 // Portail usager
 
 #content {
+    #sidebar {
+        @media screen and (min-width: 801px) {
+            margin-right: 4ex;
+        }
+    }
     #panneau-code-suivi, #tracking-code {
     
         background-color: $grey-color !important;
@@ -183,15 +188,30 @@ div.error {
     border: solid 2px $green-color !important;
     h2 {
         font-family: 'WinterthurCondensed' !important;
-        font-size: 32px !important;
+        font-size: 28px !important;
         border-bottom: 0 !important;
         border: 2px solid $green-color !important;
         border-bottom: 2px solid $green-color !important;
         background-size: 30px !important;
         background-repeat: no-repeat !important;
-        background-position: bottom 17px left 10px !important;;
+        background-position: bottom 19px left 10px !important;;
         padding-left: 50px !important;
         display: block !important;
+    }
+    p.zero-form {
+        padding: 1rem;
+    }
+    .list-of-forms {
+        a {
+            height: 4em;
+            .form-number {
+                position: absolute;
+                right: 1ex;
+            }
+            .form-status {
+                margin-top: 2em;
+            }
+        }
     }
 }
 
