@@ -142,6 +142,17 @@
 
    </div> <!-- #page -->
 
+    <!-- javascript pour "patcher" certains choix d'Entrouvert non désirés -->
+
+    <script>
+
+        // désactication des champs dans le formulaire récapitulatif de la saisie
+        $(function() {
+            $('div.form-validation form div.page :input').attr('disabled', 'true');
+        });
+
+    </script>
+
    {% if environment_label %}<span id="environment-label">{{ environment_label }}</span>{% endif %}
    <a style="display: none" href="#" accesskey="t">Retour en haut de page</a>
    {% include "includes/tracking.html" %}

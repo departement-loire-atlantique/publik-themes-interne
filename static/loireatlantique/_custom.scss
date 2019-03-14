@@ -390,7 +390,6 @@ ul#id_title {
 }
 
 .text-check-before-submit p {
-    color: red;
     font: normal 18px Arial !important;
 }
 
@@ -576,6 +575,12 @@ span.required {
     font-weight: bold !important;
     font-size: 1.5em !important;
     line-height: .5em !important;
+}
+
+// PAGE RECAPITULATIF DE LA SAISIE
+
+div.form-validation form div.page input {
+    color: rgb(40, 40, 40);
 }
 
 // -----------------------------------------------------
