@@ -86,7 +86,7 @@ div.to-the-right {
         text-decoration: underline;
     }
 
-    div.cell a, a.button, a.form-title {
+    div.cell a, a.button, a.form-title, div.back-home-button a {
         text-decoration: none;
     }
 
@@ -488,6 +488,10 @@ div#summary {
     }
 }
 
+div.back-home-button {
+    text-align: center;
+}
+
 div.back-home-button a, a#disclose-dataview {
     background: black;
     color: white;
@@ -581,6 +585,12 @@ span.required {
 
 div.form-validation form div.page input {
     color: rgb(40, 40, 40);
+}
+
+// PAGE SUIVI DE LA DEMANDE
+div.dataview {
+    margin-left: 2.5ex;
+    margin-bottom: 3ex;
 }
 
 // -----------------------------------------------------
