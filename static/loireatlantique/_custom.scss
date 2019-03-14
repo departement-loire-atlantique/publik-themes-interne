@@ -81,6 +81,15 @@ div.to-the-right {
 // Portail usager
 
 #content {
+
+    a {
+        text-decoration: underline;
+    }
+
+    div.cell a, a.button, a.form-title {
+        text-decoration: none;
+    }
+
     #sidebar {
         @media screen and (min-width: 801px) {
             margin-right: 4ex;
