@@ -3,6 +3,7 @@
 import base64
 import os
 import sys
+import argparse
 
 
 def data_uri(sourcepath):
@@ -26,7 +27,15 @@ def data_uri(sourcepath):
   os.chdir(path)
   return data_uris
 
-all_data_uris = data_uri(sys.argv[1])
-all_data_uris += data_uri(sys.argv[2])
+parser = argparse.ArgumentParser()
+parser.add_argument('--source', action='append')
+parser.add_argument('--dest', action='append')
+args = parser.parse_args()
 
-open(sys.argv[3], 'w').write('\n'.join(all_data_uris))
+all_data_uris = [];
+
+for source in args.source:
+    all_data_uris += data_uri(source)
+
+for dest in args.dest:
+    open(dest, 'w').write('\n'.join(all_data_uris))
