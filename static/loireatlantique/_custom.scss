@@ -176,29 +176,29 @@ div.error {
 }
 
 .demarches-brouillon, .demarches-encours, .demarches-terminees {
-    border: 0 !important;
+    border: solid 2px $green-color !important;
+    div {
+        h2 {
+            background-color: $grey-color !important;
+            background-position: bottom 11px left 10px !important;
+        }
+    }
 }
 
 .demarches-brouillon {
-    border: solid 2px $green-color !important;
     h2 {
-        background-color: $grey-color !important;
-        background-image: url('images/picto_brouillon.png') !important;
+            background-image: url('images/picto_brouillon.png') !important;
     }
 }
 
 .demarches-encours {
-    border: solid 2px $green-color !important;
     h2 {
-        background-color: $green-color !important;
         background-image: url('images/picto_encours.png') !important;
     }
 }
 
 .demarches-terminees {
-    border: solid 2px $green-color !important;
     h2 {
-        background-color: $green-color !important;
         background-image: url('images/picto_terminee.png') !important;
     }
 }
