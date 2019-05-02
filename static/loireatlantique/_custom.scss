@@ -39,6 +39,12 @@ a:hover {
             content: "";
          }
     }
+    @media (max-width: 800px) {
+        text-align: left !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        top: 35px !important;
+    }
 }
 
 // 
@@ -73,6 +79,11 @@ div.to-the-right {
         display: block;
         margin-bottom: 5px;
         max-width: 100%;
+    }
+    @media (max-width: 800px) {
+        padding-left: 0 !important;
+        background-position: 0 !important;
+        padding-top: 20px !important;
     }
 }
 
@@ -148,6 +159,9 @@ div.to-the-right {
         text-align: center;
         margin: 10px;
         padding: 0;
+    }
+    @media (max-width: 800px) {
+        width: 140px;
     }
 }
 
@@ -494,6 +508,9 @@ div#steps {
         li span.marker {
             font-size: 18px;
         }
+    }
+    @media (max-width: 800px) {
+        display: none;
     }
 }
 
