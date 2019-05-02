@@ -68,8 +68,6 @@ div.to-the-right {
 }
 
 #logo-demarches {
-    // TODO enlever l'attribut "!important"
-    // indiqué car règle sur 'div#header h1' dans _layout.scss
     margin-top: 20px !important;
     img {
         display: block;
@@ -389,6 +387,12 @@ ul#id_title {
 // -----------------------------------------------------
 //                 CORPS DE LA PAGE
 // -----------------------------------------------------
+
+@media (max-width: 800px) {
+    input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="tel"], input[type="number"], input[type="search"], textarea, select {
+        width: 100% !important;
+    }
+}
 
 #rub_service {
     p, label, input, div.hint {
