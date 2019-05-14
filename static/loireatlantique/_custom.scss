@@ -675,6 +675,20 @@ div.dataview {
     border-bottom: 1px solid #CCC;
 }
 
+// Modales pour zoom images
+.dp44-modal {
+    display: none;
+}
+
+div.ui-dialog .ui-dialog-titlebar {
+    background-color: $primary-color !important;
+    color: $title-color !important;
+}
+
+.ui-icon, .ui-widget-content .ui-icon {
+    background-image: url("/static/xstatic/images/ui-icons_222222_256x240.png") !important;
+}
+
 // -----------------------------------------------------
 //                   PIED DE PAGE
 // -----------------------------------------------------

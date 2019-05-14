@@ -36,6 +36,8 @@
     {% endblock %}
     {% block extra_scripts %}
     {% endblock %}
+    <link rel="stylesheet" href="{{site_base}}/static/xstatic/jquery-ui.css" />
+    <script src="{{site_base}}/static/xstatic/jquery-ui.js"></script>
   </head>
   <body {% block bodyargs %}class="{% block bodyclasses %}{% endblock %}" {% block bodyattrs %}{% endblock %}{% endblock %}>
    <div id="nav-skip">
@@ -154,6 +156,78 @@
             // tous les liens dans les formulaires doivent s'ouvrir dans une nouvelle page
             $('form .comment-field a').each(function() {
                 $(this).attr("target","_blank");
+            });
+
+            // modales
+
+            $("#dp44-modal-opener-1").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-2").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-3").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-4").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-5").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-6").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-7").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-8").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-9").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
+            });
+
+            $("#dp44-modal-opener-10").click(function() {
+                $(".dp44-modal").dialog({
+                    minWidth: 450
+                  });
+                return false;
             });
 
         });
