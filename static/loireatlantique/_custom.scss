@@ -39,7 +39,7 @@ a:hover {
             content: "";
          }
     }
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-limit) {
         text-align: left !important;
         padding-right: 0 !important;
         width: 100% !important;
@@ -80,7 +80,7 @@ div.to-the-right {
         margin-bottom: 5px;
         max-width: 100%;
     }
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-limit) {
         padding-left: 0 !important;
         background-position: 0 !important;
         padding-top: 20px !important;
@@ -100,7 +100,7 @@ div.to-the-right {
     }
 
     #sidebar {
-        @media screen and (min-width: 801px) {
+        @media screen and (min-width: $mobile-limit) {
             margin-right: 4ex;
             margin-top: 4ex;
         }
@@ -160,7 +160,7 @@ div.to-the-right {
         margin: 10px;
         padding: 0;
     }
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-limit) {
         width: 140px;
     }
 }
@@ -319,7 +319,7 @@ div.buttons.submit {
     
     div.block.connexion.motdepasse {
         border-right: dotted 1px black;
-        @media (max-width: 800px) {
+        @media (max-width: $mobile-limit) {
             border: none;
         }
         h3, form {
@@ -329,7 +329,7 @@ div.buttons.submit {
 
     div.block.connexion.creercompte {
         border-left: dotted 1px black;
-        @media (max-width: 800px) {
+        @media (max-width: $mobile-limit) {
             border: none;
         }
     }
@@ -402,7 +402,7 @@ ul#id_title {
 //                 CORPS DE LA PAGE
 // -----------------------------------------------------
 
-@media (max-width: 800px) {
+@media (max-width: $mobile-limit) {
     input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="tel"], input[type="number"], input[type="search"], textarea, select {
         width: 100% !important;
     }
@@ -515,7 +515,7 @@ div#steps {
             font-size: 18px;
         }
     }
-    @media (max-width: 800px) {
+    @media (max-width: $mobile-limit) {
         display: none;
     }
 }
@@ -637,7 +637,15 @@ div.dataview {
     margin-bottom: 3ex;
 }
 
-
+#cd44-contact {
+	border: 2px solid lightgrey;
+	text-align: center;
+    width: 400px;
+    margin: 30px auto 30px auto;
+    @media screen and (max-width: $mobile-limit) {
+        width: 100%;
+    }
+}
 
 // -----------------------------------------------------
 //                     MODALES
