@@ -7,9 +7,12 @@
   <ul>
     {% for data in forms.data %}
     {% if data.url and data.title and not data.form_status_is_endpoint %}
-    <li class="{{data.status_css_class}} {% if data.form_status_is_endpoint %}done{% endif %}"><a
-      href="{{ data.url }}"><span class="form-title">{{ data.name }}</span>
-        <span class="form-number">{{data.datetime|strptime:"%Y-%m-%d %H:%M:%S"}}</span></li>
+    <li class="{{data.status_css_class}} {% if data.form_status_is_endpoint %}done{% endif %}">
+        <a href="{{ data.url }}">
+          <span class="form-title">{{ data.name }}</span>
+          <span class="form-number">{{data.datetime|strptime:"%Y-%m-%d %H:%M:%S"}}</span>
+        </a>
+    </li>
     {% endif %}
     {% endfor %}
   </ul>
