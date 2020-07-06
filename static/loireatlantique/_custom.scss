@@ -9,7 +9,7 @@
     margin-bottom: 90px;
 }
 
-#rub_service.has-sidebox  {
+#rub_service  {
     a {
         text-decoration: underline;
     }
@@ -42,16 +42,11 @@ a:hover {
     }
 }
 
-// 
-
 // Bouton "Portail agent" décalé en bas à droite
 a#publik-portal-agent {
     color: black;
     background: #b2cb00;
     border: 1px solid grey;
-    // TODO comment caler en bas à droite de la page et pas du viewport ?
-    //bottom: 0;
-    //top: auto;
     top: 33px;
 }
 
@@ -130,6 +125,12 @@ div.to-the-right {
             border-bottom: dotted 2px #000 !important;
             font-size: 28px !important;
         }
+
+        .wcs-tracking-code-input div:first-of-type {
+            padding: 0 !important;
+        }
+
+
         button {
             margin-right: 0 !important;
             height: 3em;
@@ -434,12 +435,6 @@ h1.maintitle {
     font-weight: normal !important;
 }
 
-#rub_service:not(.has-sidebox) {
-    > h2::before {
-        content: "Suivi de votre demande ";
-    }
-}
-
 ul#evolutions li span.item {
 	border-color: black;
 	background: white !important;
@@ -500,6 +495,10 @@ div#gauche {
     width: 17%;
 }
 
+#steps-mobile {
+	display: none;
+}
+
 div#steps {
     background-color: #ececec;
     padding: 5px;
@@ -544,19 +543,30 @@ a#disclose-dataview {
     text-align: center;
 }
 
+div#title-section {
+
+    p.category-name {
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    h1 {
+        text-align: left;
+        font-family: 'WinterthurCondensed';
+        font-size: 32px !important;
+        font-weight: 400;
+        padding: 0 0 0.5ex 0;
+        background: none;
+        border-bottom: 2px dotted black;
+        border-top: 0;
+    }
+}
+
 div#rub_service {
     li {
         clear: both;
         margin-bottom: 3px;
         font-size: 15px;
-    }
-
-    h2 {
-        text-align: left;
-        font-family: 'WinterthurCondensed';
-        font-size: 32px;
-        padding: 0 0 0.5ex 0;
-        background: none;
     }
 
     input[type="radio"] {
@@ -565,13 +575,6 @@ div#rub_service {
 
     input[type="checkbox"] {
         margin: .5em;
-        // float: left;
-        // margin-top: 10px;
-        // margin-left: 10px;
-        // span {
-        //     display: block;
-        //     margin-left: 30px;
-        // }
     }
 
     .title label {

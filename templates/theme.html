@@ -53,7 +53,7 @@
     <div id="header">
      {% block header-top %}{% endblock %}
      <div id="top">
-        {% block header-title %}
+
         <a href="https://www.loire-atlantique.fr/">
             <div id="bandeau">
                 <img alt="Département de Loire-Atlantique" title="Département de Loire-Atlantique" src="https://www.loire-atlantique.fr/s.gif">
@@ -64,20 +64,16 @@
                 <img src="{{ portal_user_url }}/static/loireatlantique/images/demarches-logo.png" alt="Retour à l'accueil du site {{ site_title }}" title="Retour à l'accueil du site {{ site_title }}" >
             </a>
         </h1>
-        {% endblock %}
+
        {% if include_top_links != False %}
        <div id="toplinks">
-          {% block user-info %}
           {% if user.is_authenticated %}
           <span class="logged-in">
             <span class="connected-user">{{user.first_name}} {{user.last_name}}</span>
             <a class="logout" href="{% url 'auth_logout' %}">Déconnexion</a>
           </span>
-          {% endif %}
-          {% endblock %}
-          {% if user.is_authenticated %}
             <a class="mes-demarches" href="{{ portal_user_url }}">Mes démarches</a>
-            {% endif %}
+          {% endif %}
         </div> <!-- toplinks -->
         {% endif %}
      </div>
@@ -125,7 +121,7 @@
             <div id="footer">
                 <div id="footer-links" class="grid-10-12">
                     <ul>
-                        <li><a href="https://www.loire-atlantique.fr/demarches-nouscontacter">Nous contacter</a></li>
+                        <li><a href="https://www.loire-atlantique.fr/contact">Nous contacter</a></li>
                         <li><a href="{{ portal_user_url }}mentions-legales">Mentions légales</a></li>
                     </ul>
                 </div>
