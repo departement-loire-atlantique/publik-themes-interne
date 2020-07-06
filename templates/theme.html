@@ -65,17 +65,13 @@
             </a>
         </h1>
 
-       {% if include_top_links != False %}
-       <div id="toplinks">
-          {% if user.is_authenticated %}
-          <span class="logged-in">
-            <span class="connected-user">{{user.first_name}} {{user.last_name}}</span>
-            <a class="logout" href="{% url 'auth_logout' %}">Déconnexion</a>
-          </span>
-            <a class="mes-demarches" href="{{ portal_user_url }}">Mes démarches</a>
-          {% endif %}
+      {% if include_top_links != False %}
+        <div id="toplinks">
+          {% block user-info %}
+          {% endblock %}
+          <a class="mes-demarches" href="{{ portal_user_url }}">Mes démarches</a>
         </div> <!-- toplinks -->
-        {% endif %}
+      {% endif %}
      </div>
      {% block header-bottom %}{% endblock %}
     </div> <!-- header -->
