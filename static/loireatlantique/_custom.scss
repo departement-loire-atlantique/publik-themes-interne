@@ -265,6 +265,11 @@ div.buttons.submit {
     }
 }
 
+#intro-text-non-connecte > p:nth-child(3), #intro-text-non-connecte > a:nth-child(4) {
+    // on masque le texte et le bouton de création de compte
+    display: none;
+}
+
 // -----------------------------------------------------
 //                 PAGE DE CONNEXION
 // -----------------------------------------------------
