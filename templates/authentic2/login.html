@@ -5,8 +5,23 @@
 <div id="login-page" class="methods3">
     
     <div class="connexion-title">
-        <h1>Connexion aux services en ligne du Département de Loire-Atlantique</h1>
+        <h1>Connexion aux démarches internes du Département de Loire-Atlantique</h1>
     </div>
+
+    {# Bouton connexion agent #}
+    <p id="msg-clic-bouton-connexion-agent">Cliquez sur le bouton ci-dessous pour vous connecter</p>
+    {% for name, content in methods %}
+    <div id="bouton-connexion-agent">
+        {% if methods|length == 1 %}
+        <h2>{% if forloop.counter0 %}{{name}}{% else %}Connexion{% endif %}</h2>
+        {% endif %}
+        {% if name == "OpenIDConnect" %}
+        <div>
+            {{ content|safe }}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
 
     {# name : Nom de la méthode de connexion, soit: #}
     {# "Mot de passe", 'OpenIDConnect" (connexion Keycloack agent) ou"FranceConnect" #}
@@ -63,20 +78,6 @@
     <p>Pour exercer ces droits ou pour toute question relative au traitement de vos données dans ce dispositif, vous pouvez contacter notre délégué à la protection des données à l’adresse suivante : Département de Loire-Atlantique, Délégué à la protection des données, Direction juridique, 3 quai ceineray, CS 94109, 44041 Nantes Cedex 1.</p>
 
 </div>
-
-{# Bouton connexion agent #}
-{% for name, content in methods %}
-<div id="bouton-connexion-agent">
-    {% if methods|length == 1 %}
-    <h2>{% if forloop.counter0 %}{{name}}{% else %}Connexion{% endif %}</h2>
-    {% endif %}
-    {% if name == "OpenIDConnect" %}
-    <div>
-        {{ content|safe }}
-    </div>
-    {% endif %}
-</div>
-{% endfor %}
 
 <script>
     $("#oidc-a-keycloak-agents").addClass("button");
