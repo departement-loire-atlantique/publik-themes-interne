@@ -230,7 +230,6 @@ div.error {
     }
     .list-of-forms {
         a {
-            height: 3em;
             .form-number {
                 position: absolute;
                 right: 1ex;
@@ -241,6 +240,10 @@ div.error {
             }
         }
     }
+}
+
+button.cell-items-pagination-prev:disabled, button.cell-items-pagination-next:disabled {
+    background-color: #BBBBBB !important;
 }
 
 div.buttons.submit {
@@ -361,29 +364,6 @@ div.buttons.submit {
 
     }
 
-}
-
-#fc-button-wrapper {
-   
-    #fc-button {
-        box-shadow: none !important;
-        div {
-            color: black;
-            padding: 10px 5px;
-        }
-        a {
-            background: none; 
-            padding-top: 0;
-        }
-    }
-
-    div#fc-button:hover {
-        background: none;
-    }
-
-    a {
-        text-decoration: underline;
-    }
 }
 
 #login-page-encart {
@@ -549,7 +529,6 @@ div#rub_service {
     }
 
     li {
-        clear: both;
         margin-bottom: 3px;
         font-size: 15px;
     }
