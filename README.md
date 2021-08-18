@@ -1,12 +1,12 @@
-# Theme for Publik by "Département de Loire Atlantique"
+# Theme for Publik interne by "Département de Loire Atlantique"
 
 ## License
 This project is licensed under the terms of the MIT license.
 
 ## Install
 ```
-git clone https://github.com/departement-loire-atlantique/publik-themes --recurse-submodules
-cd publik-themes
+git clone https://github.com/departement-loire-atlantique/publik-themes-interne --recurse-submodules
+cd publik-themes-interne
 make install
 ```
 
