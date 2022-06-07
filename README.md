@@ -1,5 +1,7 @@
 # Theme for Publik interne by "Département de Loire Atlantique"
 
+## Ce dépôt est obsolète : le thème interne a été intégré dans publik-themes
+
 ## License
 This project is licensed under the terms of the MIT license.
 
